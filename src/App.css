@@ -1,38 +1,394 @@
-.App {
-  text-align: center;
-}
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&family=Roboto:wght@300&display=swap");
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+*
+{
+  padding:0;
+  margin:0;
+  box-sizing: border-box;
+  list-style: none;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body 
+{
+  font-family: "Roboto", sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.app
+{
+  background-color: #202020;
+  height: 100vh;
+  color:#fff;
   display: flex;
-  flex-direction: column;
+}
+.header
+{
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
+  padding:5px 8px;
+  margin:2rem 4rem 0 4rem;
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+  height:10vh;
+  border: 1px dashed white;
+  animation: header 3s infinite;
+
+}
+@keyframes header{
+  from{
+   color:white;
+  }
+  to{
+    color:teal;
+  }
 }
 
-.App-link {
-  color: #61dafb;
+.main
+{
+  flex:4;
+  background: url("./assets/bgquiz.jpg") center ;
+  display:flex;
+  flex-direction: column;
+ 
+}
+.top
+{
+  height:20%;
+  position: relative;
+}
+.timer
+{
+  
+ width:4.5rem;
+ height:4.5rem;
+ border-radius: 50%;
+ border:4px solid white;
+ /* color: linear-gradient(teal,white); */
+ display:flex;
+ align-items: center;
+ justify-content: center;
+ font-weight: 300;
+ font-size: 25px;
+ position: absolute;
+ bottom:-50px;
+ left:150px;
+}
+.bottom
+{
+  height:60%;
+}
+.questions
+{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.ques
+{
+  width:50%;
+  background: linear-gradient(rgb(84, 87, 87),rgb(6, 7, 7));
+  border: 2px solid white;
+  border-radius: 3px;
+  padding: 10px 0;
+  font-size: 20px;
+  text-align: center;
+}
+.answers
+{
+  display: flex;
+  /* background-color: aqua; */
+  width:50%;
+  margin-top: 2rem;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+ 
+}
+.ans
+{
+  width:48.3%;
+  background: linear-gradient(rgb(43, 39, 39),rgb(27, 32, 32),rgb(73, 70, 70));
+  border-radius: 10px;
+  border: 1.5px solid white;
+  text-align: center;
+  padding:7px;
+  margin-right: 0.5rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+/* background: rgb(7, 158, 7); */
+.ans.active
+{
+  background:teal;
+}
+.ans:hover
+{
+  background:teal;
+  
+}
+.ans.correct
+{
+  animation: correct 2s ease forwards;
+}
+@keyframes correct{
+  0%, 22%,42%{
+    background: teal;
+  }
+  20%,40%,62%
+  {
+    background: linear-gradient(rgb(43, 39, 39),rgb(27, 32, 32),rgb(73, 70, 70));
+  }
+  62%,100%
+  {
+    background: rgb(7, 158, 7);
+  }
+}
+.ans.incorrect
+{
+  animation: incorrect 3s ease forwards;
+}
+@keyframes incorrect{
+  0%, 22%,42%{
+    background: teal;
+  }
+  20%,40%,62%
+  {
+    background: linear-gradient(rgb(43, 39, 39),rgb(27, 32, 32),rgb(73, 70, 70));
+  }
+  62%,100%
+  {
+    background:red;
+  }
+}
+.coins
+{
+  flex:1.5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+.coin-list
+{
+  display: flex;
+  width:50%;
+  align-items: center;
+  gap:1rem;
+  justify-content: center;
+  flex-direction: column;
+}
+.coin-item
+{
+  display: flex;
+  align-items: center;
+ width:100%;
+  justify-content: space-around;
+}
+.coin-item.active
+{
+  background-color: teal;
+  padding:5px;
+  border-radius: 2px;
+ 
+}
+.lost-page
+{
+  height:100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.lost-game
+{
+  font-size: 1.6rem;
+  /* height:90%; */
+  letter-spacing: 1.5px;
+  
+}
+.lost-btn
+{
+  margin-top: 1rem;
+  padding:6px 8px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  border: none;
+  cursor: pointer;
+   background-color: teal;
+   color:#fff;
+}
+.bold
+{
+  margin-left: 0.3rem;
+  color: teal;
+  font-size: 1.9rem;
+}
+.welcome
+{
+
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  
+  justify-content: center;
+}
+.wel-cont
+{
+  width:20%;
+  height:20vh;
+  border: 2px solid white;
+  /* background-color: teal; */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.input-name
+{
+  padding:5px;
+  width:60%;
+  color:#202020;
+  /* font-weight: 600; */
+  font-size: 0.9rem;
+  text-align: center;
+  border-radius: 5px;
+  border: none;
+}
+.input-name:focus
+{
+ outline: none;
+}
+.startbtn
+{
+  color: #fff;
+  background-color: teal;
+  font-size: 0.9rem;
+  padding:4px 5px;
+  border: none;
+  border-radius: 7px;
+  margin-top: 1rem;
+  width: 60%;
+  cursor: pointer;
+}
+@media (max-width:375px)
+{
+  .header {
+    
+    padding: 3px 5px;
+    margin: 2rem 4rem 0 4rem;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    height: 7vh;
+    border: 1px dashed white;
+    animation: header 3s infinite;
+}
+  .app{
+    flex-wrap: wrap;
+    gap:2rem;
+    position: relative;
+  }
+  .lost-btn
+{
+  margin-top: 1rem;
+  padding:7px 9px;
+  border-radius: 4px;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+   background-color: teal;
+   color:#fff;
+}
+.questions {
+  height: 40vh;
+  
+}
+  .main
+{
+  width:100%;
+  flex:none;
+ 
+ 
+}
+.lost-page {
+ width:100%;
+ flex-wrap: wrap;
+}
+  .wel-cont {
+    width: 65%;
+   
+}
+.input-name {
+  padding: 6px;
+  width: 62%;
+ 
+  font-size: 1rem;
+  
+}
+.startbtn {
+  
+  font-size: 1rem;
+  padding: 5px 5px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 1rem;
+  width: 61%;
+  cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.coin-list {
+  display: flex;
+  width: 70%;
+  align-items: center;
+  gap: 0.7rem;
+  justify-content: center;
+  flex-direction: column;
+}
+.coins{
+  margin-top: 1rem;
+height: 40vh;
+
+}
+.timer {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  border: 2px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 300;
+  font-size: 20px;
+  position: absolute;
+  bottom: 11px;
+  left: 30px;
+}
+.ques {
+  width: 90%;
+  background: linear-gradient(rgb(84, 87, 87),rgb(6, 7, 7));
+  border: 1px solid white;
+  border-radius: 3px;
+  padding: 5px 5px;
+  font-size: 18px;
+  text-align: center;
+}
+.ans {
+  width: 90.3%;
+  
+}
+
+.lost-game {
+  font-size: 1.1rem;
+ 
+  height: 15%;
+  letter-spacing: 1px;
+  
+}
+.bold {
+  margin-left: 0.3rem;
+  color: teal;
+  font-size: 1.4rem;
+}
 }
